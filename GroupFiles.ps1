@@ -8,7 +8,7 @@ Param(
 $global:fileTypeLookup = @{};
 $folderDateTimeFormat = "MM-yyyy"
 
-function Move-FilesIntoFoldersByMonthAndType{
+function Copy-FilesIntoFoldersByMonthAndType{
     param()
 
     $files = Get-ChildItem -Recurse -File -Path $sourcePath
@@ -52,4 +52,4 @@ function Get-FilePathDictionary{
     return $global:fileTypeLookup[$file.Extension]
 }
 
-Move-FilesIntoFoldersByMonthAndType
+Copy-FilesIntoFoldersByMonthAndType
