@@ -6,7 +6,7 @@ Param(
 )
 
 $global:fileTypeLookup = @{};
-$folderDateTimeFormat = "MM-yyyy"
+$folderDateTimeFormat = "yyyy-MM"
 
 function Copy-FilesIntoFoldersByMonthAndType{
     param()
