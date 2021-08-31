@@ -32,9 +32,9 @@ function Get-DirectoryForFile{
         return $monthYearDirLookup[$modifiedTimeMonthYearInternal]
     }
 
-    #If the file has no extension, place it into a folder called "Other"
+    #If the file has no extension, place it into a folder called "No Extension"
     if($file.Extension.Length -eq 0) {
-        $extensionWithoutDot = "Other"
+        $extensionWithoutDot = "No Extension"
     } else {
         $extensionWithoutDot = $file.Extension.Substring(1, $file.Extension.Length - 1)
     }
