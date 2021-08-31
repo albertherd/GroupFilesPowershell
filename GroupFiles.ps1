@@ -32,7 +32,13 @@ function Get-DirectoryForFile{
         return $monthYearDirLookup[$modifiedTimeMonthYearInternal]
     }
 
-    $extensionWithoutDot = $file.Extension.Substring(1, $file.Extension.Length - 1)
+    #If the file has no extension, place it into a folder called "Other"
+    if($file.Extension.Length -eq 0) {
+        $extensionWithoutDot = "Other"
+    } else {
+        $extensionWithoutDot = $file.Extension.Substring(1, $file.Extension.Length - 1)
+    }
+    
     $dateFolderFileName = $file.LastWriteTime.ToString($folderDateTimeFormat)
     $newPath = $targetPath + "\" + $extensionWithoutDot + "\" + $dateFolderFileName
     $path = New-Item -ItemType Directory $newPath -Force
